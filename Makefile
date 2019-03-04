@@ -16,6 +16,10 @@ NODE_MODULES=./node_modules
 clean:
 	@rm -rf $(DIST_FOLDER)
 
+# Watches project files for changes
+watch:
+	@node scripts/watch.js $(STYLESHEETS_LOC)=css $(JAVASCRIPTS_LOC)=js $(SRC_FOLDER)/index.html=html
+
 # Launches a local server
 serve: clean build
 	@node server.js
