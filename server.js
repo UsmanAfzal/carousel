@@ -3,11 +3,11 @@ const express = require('express'),
   port    = process.env.PORT || 5000,
   path    = require('path');
 
-app.use(express.static(path.join(__dirname, '/dist')));
+app.use(express.static(path.join(__dirname, '/src')));
 
 // Root of application
 app.get('/', function(req, res) {
-  res.sendFile(path.join(__dirname, '/dist/index.html'));
+  res.sendFile(path.join(__dirname, '/src/index.html'));
 });
 
 // Requested views
