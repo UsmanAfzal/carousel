@@ -10,6 +10,7 @@ ICONS_LOC=src/icons
 # Node module variables
 BABEL=$(NODE_MODULES)/.bin/babel
 BROWSERIFY=$(NODE_MODULES)/.bin/browserify
+LIGHTHOUSE=$(NODE_MODULES)/.bin/lighthouse
 NODE_MODULES=./node_modules
 NODE_SASS=$(NODE_MODULES)/.bin/node-sass
 POSTCSS=$(NODE_MODULES)/.bin/postcss
@@ -42,6 +43,10 @@ js:
 html:
 	@mkdir $(DIST_FOLDER)
 	@cp $(SRC_FOLDER)/index.html $(DIST_FOLDER)/
+
+# Accessibility, best practise,
+lighthouse:
+	@$(LIGHTHOUSE) http://localhost:5000 --chrome-flags="--headless" --output-path=src/tests/lighthouse-report.html
 
 # Builds application
 build: html css js

@@ -29,6 +29,7 @@
     "cssnano": "^4.1.10",
     "express": "^4.16.4",
     "jest": "^24.1.0",
+    "lighthouse": "^4.1.0",
     "node-sass": "^4.11.0",
     "postcss-cli": "^6.1.2"
   }
