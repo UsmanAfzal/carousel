@@ -21,11 +21,15 @@
   "main": "server.js",
   "devDependencies": {
     "@babel/core": "^7.3.4",
+    "autoprefixer": "^9.4.9",
     "babel-cli": "^6.26.0",
     "babel-jest": "^24.1.0",
     "babel-preset-es2015": "^6.24.1",
     "browserify": "^16.2.3",
+    "cssnano": "^4.1.10",
     "express": "^4.16.4",
-    "jest": "^24.1.0"
+    "jest": "^24.1.0",
+    "node-sass": "^4.11.0",
+    "postcss-cli": "^6.1.2"
   }
 }

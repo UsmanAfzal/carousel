@@ -11,6 +11,8 @@ ICONS_LOC=src/icons
 BABEL=$(NODE_MODULES)/.bin/babel
 BROWSERIFY=$(NODE_MODULES)/.bin/browserify
 NODE_MODULES=./node_modules
+NODE_SASS=$(NODE_MODULES)/.bin/node-sass
+POSTCSS=$(NODE_MODULES)/.bin/postcss
 
 # Deletes the dist folder
 clean:
@@ -24,6 +26,12 @@ watch:
 serve: clean build
 	@node server.js
 
+# Compiles sass to css
+css:
+	@mkdir -p $(DIST_FOLDER)/stylesheets
+	@$(NODE_SASS) --output-style compressed -o $(DIST_FOLDER)/stylesheets $(STYLESHEETS_LOC)
+	@$(POSTCSS) -r $(DIST_FOLDER)/stylesheets/* --no-map
+
 # Build js
 js:
 	@mkdir -p $(DIST_FOLDER)/javascripts
@@ -36,4 +44,4 @@ html:
 	@cp $(SRC_FOLDER)/index.html $(DIST_FOLDER)/
 
 # Builds application
-build: html js
+build: html css js
