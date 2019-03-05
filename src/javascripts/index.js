@@ -9,10 +9,16 @@ async function fetchImages() {
   const response = await fetch(landscapeImages);
   const json = await response.json();
 
-  /* Build carousel items */
-  json.hits.forEach(item => {
-    const el = document.createElement('div');
-    el.innerHTML = `<img src="${item.previewURL}">`;
-    document.querySelector('main').appendChild(el);
-  });
+  /* Build Carousel */
+  document.querySelector('main').innerHTML = `
+    <div class="carousel">
+      <ul>
+        ${json.hits.map(function(item) {
+          return `<li><img src="${item.previewURL}"></li>`
+        }).join('')}
+      </ul>
+    </div>
+    <button>Next</button>
+    <button>Previous</button>
+  `;
 }
