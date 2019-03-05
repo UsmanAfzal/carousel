@@ -5,9 +5,8 @@ An exercise to build carousel
 ### Contents
 - [Requirements](#requirements)
 - [Getting Started](#getting-started)
-- [Pugin Composition Application](#pugin-composition-application)
-  - [Running the application](#running-the-application)
-  - [Running tests](#running-tests)
+- [Running the application](#running-the-application)
+- [Running tests](#running-tests)
 
 ## Requirements
 This application requires the following:
@@ -25,12 +24,28 @@ To run the application locally, run:
 npm install
 npm start
 ```
+or if you prefer using GNU Make:
+ ```bash
+ make install
+ make serve
+ ```
+### Watch files
+To watch files when changes are made, in a seperate terminal tab or window run:
+```bash
+npm run watch
+```
+or
+ ```bash
+ make watch
+ ```
 
 ### Running tests
-We run the following tests:
 * [Lighthouse][Lighthouse] Audit tool for accessibility, SEO, best practise and performance testing.
-
 To run [Lighthouse][Lighthouse]:
+```bash
+npm test
+```
+or
 ```bash
 make test
 ```

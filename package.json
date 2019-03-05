@@ -16,7 +16,8 @@
   },
   "scripts": {
     "start": "make serve",
-    "test": "jest"
+    "test": "make lighthouse",
+    "watch": "make watch"
   },
   "main": "server.js",
   "devDependencies": {
