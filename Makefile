@@ -20,7 +20,7 @@ clean:
 
 # Watches project files for changes
 watch:
-	@node scripts/watch.js $(STYLESHEETS_LOC)=css $(JAVASCRIPTS_LOC)=js $(SRC_FOLDER)/index.html=html
+	@node scripts/watch.js $(STYLESHEETS_LOC)=css $(JAVASCRIPTS_LOC)=js
 
 # Launches a local server
 serve: clean build

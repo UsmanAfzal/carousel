@@ -1,0 +1,64 @@
+body {
+	margin: 0;
+	font-size: $base-font-size;
+	font-family: $base-font-stack;
+}
+
+header {
+	padding: $base-spacing-unit-large;
+	background-color: $grey;
+}
+
+h1 {
+	margin: 0;
+	color: $blue;
+	font-size: $heading-one-size;
+}
+
+ul {
+	display: grid;
+	overflow: hidden;
+	max-height: 100px;
+	list-style-type: none;
+	padding: 0 $base-spacing-unit-large;
+	grid-gap: $base-spacing-unit-large;
+	grid-template-columns: repeat(auto-fill, minmax(150px, 150px));
+}
+
+li {
+	overflow: hidden;
+	background: linear-gradient(to right, darken($white, 2%), darken($white, 10%)); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+img {
+	display: block;
+	min-height: 100%;
+}
+
+button {
+	border: 0;
+	color: $white;
+	min-width: 100px;
+	background-color: $blue;
+	font-size: $base-font-size;
+	font-family: $base-font-stack;
+	padding: $base-spacing-unit-medium;
+
+	&:hover {
+		cursor: pointer;
+		background-color: darken($blue, 5%);
+	}
+}
+
+.button--group {
+	text-align: center;
+	background-color: $grey;
+	padding: $base-spacing-unit-large;
+
+	:nth-child(1) {
+		border-radius: $base-spacing-unit 0 0 $base-spacing-unit;
+	}
+	:nth-child(2) {
+		border-radius: 0 $base-spacing-unit $base-spacing-unit 0;
+	}
+}

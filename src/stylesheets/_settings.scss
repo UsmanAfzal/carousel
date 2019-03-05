@@ -1,0 +1,19 @@
+/*--- Colour Settings ---*/
+
+$grey:													#E9EEE7;
+$blue:													#026898;
+$white:													#FFFFFF;
+
+/*--- Font Settings ---*/
+
+@import url('https://fonts.googleapis.com/css?family=Ropa+Sans');
+
+$base-font-stack: 'Ropa Sans', sans-serif;
+$base-font-size: 20px;
+$heading-one-size: 40px;
+
+/*--- Vertical Spacing Base Settings ---*/
+
+$base-spacing-unit: 6px;
+$base-spacing-unit-medium: round($base-spacing-unit * 2); 				// 12px
+$base-spacing-unit-large: round($base-spacing-unit * 3); 					// 18px

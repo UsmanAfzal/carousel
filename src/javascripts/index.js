@@ -17,8 +17,10 @@ async function fetchImages() {
           return `<li><img src="${item.previewURL}"></li>`
         }).join('')}
       </ul>
+      <div class="button--group">
+        <button>Next</button>
+        <button>Previous</button>
+      </div>
     </div>
-    <button>Next</button>
-    <button>Previous</button>
   `;
 }
