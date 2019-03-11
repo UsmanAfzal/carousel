@@ -1,5 +1,5 @@
 # Carousel Exercise
-An exercise to build carousel
+An exercise to build a carousel using the pixabay API.
 
 
 ### Contents
@@ -47,7 +47,7 @@ npm test
 ```
 or
 ```bash
-make test
+make lighthouse
 ```
 
 [node]:														https://nodejs.org/en/
