@@ -9,30 +9,45 @@ header {
 	background-color: $grey;
 }
 
-h1 {
+h1, h2 {
 	margin: 0;
 	color: $blue;
+}
+
+h1 {
 	font-size: $heading-one-size;
 }
 
-ul {
-	display: grid;
-	overflow: hidden;
-	max-height: 100px;
-	list-style-type: none;
-	padding: 0 $base-spacing-unit-large;
-	grid-gap: $base-spacing-unit-large;
-	grid-template-columns: repeat(auto-fill, minmax(150px, 150px));
+h2 {
+	font-size: $heading-two-size;
 }
 
-li {
-	overflow: hidden;
-	background: linear-gradient(to right, darken($white, 2%), darken($white, 10%)); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+ul {
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
 }
 
 img {
-	display: block;
-	min-height: 100%;
+	height: 170px;
+	min-width: 100%;
+}
+
+ul {
+	height: 100%;
+	width: 2000%;
+	display: flex;
+	flex-shrink: 0;
+	transition: all 0.5s;
+}
+
+li {
+	flex: 1;
+	width: 20%;
+	display: flex;
+	text-align: center;
+	align-items: center;
+	justify-content: center;
 }
 
 button {
@@ -42,12 +57,19 @@ button {
 	background-color: $blue;
 	font-size: $base-font-size;
 	font-family: $base-font-stack;
-	padding: $base-spacing-unit-medium;
+	padding: $base-spacing-unit $base-spacing-unit-medium;
 
 	&:hover {
 		cursor: pointer;
 		background-color: darken($blue, 5%);
 	}
+}
+
+.carousel {
+	width: 100%;
+	display: flex;
+	overflow: hidden;
+	justify-content: flex-start;
 }
 
 .button--group {

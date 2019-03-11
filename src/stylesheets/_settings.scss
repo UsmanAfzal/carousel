@@ -11,9 +11,14 @@ $white:													#FFFFFF;
 $base-font-stack: 'Ropa Sans', sans-serif;
 $base-font-size: 20px;
 $heading-one-size: 40px;
+$heading-two-size: 20px;
 
 /*--- Vertical Spacing Base Settings ---*/
 
 $base-spacing-unit: 6px;
 $base-spacing-unit-medium: round($base-spacing-unit * 2); 				// 12px
 $base-spacing-unit-large: round($base-spacing-unit * 3); 					// 18px
+
+/*--- Size Settings ---*/
+
+$large-screen: 800px;
