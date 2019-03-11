@@ -1,34 +1,74 @@
 import { landscapeImages } from './api';
 
 window.addEventListener('load', () => {
-  fetchImages();
+  carousel();
 });
 
-/* Fetch images from API */
-async function fetchImages() {
+async function carousel() {
+
+  /* Fetch images */
   const response = await fetch(landscapeImages);
   const json = await response.json();
 
-  /* Build Carousel */
+  /* Build carousel */
   document.querySelector('main').innerHTML = `
     <div class='carousel'>
       <ul>
-        ${json.hits.map(function(item) {
-          return `<li><img src='${item.previewURL}' alt='${item.tags}'></li>`
-        }).join('')}
+        ${json.hits.map(function (item) {
+    return `
+      <li>
+        <div>
+          <img src='${item.webformatURL}' alt='${item.tags}'>
+          <h2>${item.tags}</h2>
+        </div>
+      </li>`}).join('')}
       </ul>
-      <div class='button--group'>
-        <button>Next</button>
-        <button>Previous</button>
-      </div>
+    </div>
+    <div class='button--group'>
+      <button>Next</button>
+      <button>Previous</button>
     </div>
   `;
-}
 
-/*window.addEventListener('resize', () => {
-  let windowSize = window.innerWidth;
+  const jsonLength = json.hits.length;
+  const carousel = document.querySelector('.carousel');
   const ul = document.querySelector('ul');
-  setAttributes(elem, {'style': 'width:' + windowSize + 'px', 'translate': '100%'});
-  ul.setAttribute('style', 'width:' + windowSize + 'px');
-  ul.setAttribute('style', 'transform:' + windowSize + 'px');
-});*/
+  const prev = document.getElementsByTagName('button')[1];
+  const next = document.getElementsByTagName('button')[0];
+  let direction = -1;
+
+  /* Previous button */
+  prev.addEventListener('click', function() {
+    if(direction === -1 ) {
+      ul.appendChild(ul.firstElementChild);
+      direction = 1;
+    }
+    carousel.style.justifyContent = 'flex-end';
+    ul.style.transform = 'translate(' + 100 / jsonLength + '%)';
+  });
+
+  /* Next button */
+  next.addEventListener('click', function() {
+    if(direction === 1 ) {
+      ul.prepend(ul.lastElementChild);
+      direction = -1;
+    }
+    carousel.style.justifyContent = 'flex-start';
+    ul.style.transform = 'translate(-' + 100 / jsonLength + '%)';;
+  });
+
+  /* Carousel state changes */
+  ul.addEventListener('transitionend', function() {
+    if(direction === -1) {
+      ul.appendChild(ul.firstElementChild);
+    } else if (direction === 1) {
+      ul.prepend(ul.lastElementChild);
+    }
+
+    ul.style.transition = 'none';
+    ul.style.transform = 'translate(0)';
+    setTimeout(function() {
+      ul.style.transition = 'all 0.5s';
+    });
+  });
+}
