@@ -1,4 +1,4 @@
-.PHONY: serve babel
+.PHONY: clean watch serve css js html lighthouse build
 
 # Common variables
 SRC_FOLDER=src
